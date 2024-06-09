@@ -1,0 +1,35 @@
+import java.util.*;
+public class problem{
+// Rotate the given array by k steps where k can be grater than n 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the value of n: ");
+        int n=sc.nextInt();
+        int[] arr= new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        System.out.println("enter the k: ");
+        int k=sc.nextInt();
+        k=k%n;
+        int[] arr2=new int[n];
+        int j=0;
+        int m=n-k;
+        for(int i=m;i<n;i++)
+        {
+            arr2[j]=arr[i];
+            j++;
+        }
+        for(int i=0;i<m;i++)
+        {
+            arr2[j]=arr[i];
+            j++;
+        }
+        System.out.println("The rotated array: ");
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr2[i]+"  ");
+        }
+    }
+}
