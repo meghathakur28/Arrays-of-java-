@@ -1,5 +1,5 @@
 import java.util.*;
-// Given an integer array 'a',return the prefix sum/running sum in the same array
+// Given an integer array 'a',return the prefix sum/running sum in the array
 public class problem{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
