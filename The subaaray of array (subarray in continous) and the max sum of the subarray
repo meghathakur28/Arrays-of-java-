@@ -1,0 +1,33 @@
+import java.util.*;
+// The subaaray of array (subarray in continous) and the max sum of the subarray
+public class problem{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the n: ");
+        int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        System.out.println("The output is: "); 
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                 int sum=0;
+                 for(int k=i;k<=j;k++)
+                 {
+                    System.out.print(arr[k]+" ");
+                    sum=sum+arr[k];
+                 }
+                 System.out.println("  sum:"+sum);
+                 if(sum>max)
+                 max=sum;
+            }
+            System.out.println();
+        }
+        System.out.println("The max sum: "+max);
+    }
+}
