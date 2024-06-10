@@ -1,0 +1,58 @@
+import java.util.*;
+// Check if we can partition the array into two subarray with equal sum.
+public class problem{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the n: ");
+        int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int arr2[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            if(i==0)
+            {
+                arr2[i]=arr[i];
+            }
+            else
+            arr2[i]=arr2[i-1]+arr[i];
+        }
+        System.out.println("Prefix array: ");
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr2[i]+" ");
+        }
+        int arr1[]=new int[n];
+        for(int i=n-1;i>=0;i--)
+        {
+            if(i==n-1)
+            arr1[i]=arr[i];
+            else
+            arr1[i]=arr[i]+arr1[i+1];
+        }
+        System.out.println();
+        System.out.println("Suffix array: ");
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr1[i]+" ");
+        }
+        int s=0;
+        for(int i=0;i<n-1;i++)
+        {
+        if(arr2[i]==arr1[i+1])
+        {
+            s=-1;
+        }
+    }
+    if(s==-1)
+    {
+        System.out.println("True");
+    }
+    else
+    System.out.println("False");
+
+    }
+}
