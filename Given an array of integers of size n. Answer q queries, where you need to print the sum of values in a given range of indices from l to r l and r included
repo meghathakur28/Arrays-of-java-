@@ -1,0 +1,33 @@
+import java.util.*;
+// Given an array of integers of size n. Answer q queries, where you need to print the sum of values in a given range of indices from l to r l and r included
+public class problem{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the n: ");
+        int n=sc.nextInt();
+        int[] arr = new int[n+1];
+        for(int i=1;i<=n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        for(int i=1;i<=n;i++)
+        {
+            arr[i]=arr[i-1]+arr[i];
+        }
+        
+        System.out.println("Enter the queries: ");
+        int q=sc.nextInt();
+        int sum=0;
+        while(q>0)
+        {
+            System.out.println("Enter the value of l: ");
+            int l=sc.nextInt();
+            System.out.println("Enter the value of r: ");
+            int r=sc.nextInt();
+            sum=arr[r]-arr[l-1];
+            System.out.println("The sum is: "+sum);
+            q--;
+
+        }
+    }
+}
