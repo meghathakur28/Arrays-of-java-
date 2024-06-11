@@ -1,0 +1,42 @@
+import java.util.Scanner;
+// Transpose of two matrics in place
+public class Array_problem {
+    public static void trans_inplace(int[][]arr1,int r1,int c1)
+    {
+        for(int i=0;i<c1;i++)
+        {
+            for(int j=i;j<r1;j++)
+            {
+                int temp;
+                temp = arr1[i][j];
+                arr1[i][j] = arr1[j][i];
+                arr1[j][i]=temp;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the rows and col of arr1: ");
+        int r1=sc.nextInt();
+        int c1=sc.nextInt();
+        int[][] arr1=new int[r1][c1];
+        System.out.println("Enter the values of arr1: ");
+        for(int i=0;i<r1;i++)
+        {
+            for(int j=0;j<c1;j++)
+            {
+                 arr1[i][j]=sc.nextInt();
+            }
+        }
+        System.out.println("Transpose of matrix: ");
+        trans_inplace(arr1,r1,c1);
+        for(int i=0;i<c1;i++)
+        {
+            for(int j=0;j<r1;j++)
+            {
+                 System.out.print(arr1[i][j]+" ");
+            }
+            System.out.println(" ");
+        }
+    }
+}
