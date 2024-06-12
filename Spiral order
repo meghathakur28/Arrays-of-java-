@@ -1,0 +1,59 @@
+import java.util.*;
+//Spiral order
+//given an n*m matrix 'a',return all the elements of the matrix in spiral order
+public class Two_D_array {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the rows and col respectively: ");
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int[][] arr1=new int[r][c];
+        System.out.println("Enter the values of arr1: ");
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                 arr1[i][j]=sc.nextInt();
+            }
+        }
+        int top_row=0;
+        int bottom_row=r-1;
+        int right_col=c-1;
+        int left_col=0;
+        int total_Element=0;
+        System.out.println("Sprial order: ");
+        while(total_Element<(r*c))
+        {
+            //top row -> left col to right col
+            for(int j=left_col;j<=right_col;j++)
+            {
+                System.out.print(arr1[top_row][j]+" ");
+                total_Element++;
+            }
+            top_row++;
+            // right col -> top row to bottom row
+            for(int j=top_row;j<=bottom_row;j++)
+            {
+                System.out.print(arr1[j][right_col]+" ");
+                total_Element++;
+            }
+            right_col--;
+            // bottom row -> right col to left col 
+            for(int j=right_col;j>=left_col;j--)
+            {
+                System.out.print(arr1[bottom_row][j]+" ");
+                total_Element++;
+            }
+            bottom_row--;
+            // left col -> bottom row to top row 
+            for(int j=bottom_row;j>=top_row;j--)
+            {
+                System.out.print(arr1[j][left_col]+" ");
+                total_Element++;
+            }
+            left_col++;
+
+        }
+
+    }
+}
