@@ -1,0 +1,62 @@
+import java.util.*;
+//given a positive integer n,generate an n*n matrix filled with elements from 1 to n^2 in spiral order
+public class Two_D_array {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the value of n: ");
+        int n=sc.nextInt();
+        int[][] arr1=new int[n][n];
+        int top_row=0;
+        int bottom_row=n-1;
+        int right_col=n-1;
+        int left_col=0;
+        int total_Element=0;
+        int no=1;
+        System.out.println("Sprial order: ");
+        while(total_Element<(n*n))
+        {
+            //top row -> left col to right col
+            for(int j=left_col;j<=right_col&&total_Element<(n*n);j++)
+            {
+                arr1[top_row][j]=no;
+                no++;
+                total_Element++;
+            }
+            top_row++;
+            // right col -> top row to bottom row
+            for(int j=top_row;j<=bottom_row&&total_Element<(n*n);j++)
+            {
+                arr1[j][right_col]=no;
+                no++;
+                total_Element++;
+            }
+            right_col--;
+            // bottom row -> right col to left col 
+            for(int j=right_col;j>=left_col&&total_Element<(n*n);j--)
+            {
+                arr1[bottom_row][j]=no;
+                no++;
+                total_Element++;
+            }
+            bottom_row--;
+            // left col -> bottom row to top row 
+            for(int j=bottom_row;j>=top_row&&total_Element<(n*n);j--)
+            {
+                arr1[j][left_col]=no;
+                no++;
+                total_Element++;
+            }
+            left_col++;
+
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print(arr1[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+    }
+}
