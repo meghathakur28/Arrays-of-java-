@@ -1,0 +1,48 @@
+import java.util.*;
+public class array {
+    public static void main(String[] main)
+    {
+        //find the total no of pairs in the array whose sum is equal to given value x
+        int[] arr ={1,4,5,3,3,2,6};
+        int n=7;
+        int target = 12; 
+        Arrays.sort(arr); // 1,2,3,3,4,5,6
+        // System.out.println("sorted array: ");
+        // for(int i=0;i<n;i++)
+        // {
+        //     System.out.println(arr[i]+" ");
+        // }
+        for(int s=0;s<n-1;s++)
+        {
+            for(int t = s+1;t<n;t++)
+            {
+                if(arr[s]==arr[t])
+                {
+                    for(int k=t;k<n-1;k++)
+                    {
+                        arr[k]=arr[k+1];
+                    }
+                    n--;
+                }
+            }
+        }
+        // System.out.println("remove duplicate: ");
+        // for(int i=0;i<n;i++)
+        // {
+        //     System.out.print(arr[i]+" ");
+        // }
+        for(int i=0;i<n-2;i++)
+        {
+            for(int j=i+1;j<n-1;j++)
+            {
+                for(int k=i+2;k<n;k++)
+                {
+                    if(arr[i]+arr[j]+arr[k]==target&&i!=j&&j!=k&&k!=i)  // 1,2,3,4,5,6
+                    {
+                        System.out.print(arr[i]+","+arr[j]+","+arr[k]+" "); // 1,5,6  2,4,6 2,5,5 3,4,5
+                    }
+                }
+            }
+        }
+    }  
+}
